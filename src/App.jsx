@@ -5,7 +5,9 @@ import BlogDetails from "./pages/BlogDetails"
 function App() {
 
   return (
-      <BrowserRouter>
+    <BrowserRouter
+      basename={import.meta.env.DEV ? '/' : '/rita-website/'}
+    >
         <Routes>
           <Route exact path='/' element={<Home />} />
           <Route exact path='/blog/:id' element={<BlogDetails />} />
