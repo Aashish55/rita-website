@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Layout from "../layout/layout";
 import blogData from "../data/blogs.json"
 import { useLocation, useNavigate } from "react-router-dom";
+import wildcardBlogImage from '../assets/images/blogs/wildcard.png'
 
 const BlogDetails = () => {
   const location = useLocation()
@@ -13,6 +14,14 @@ const BlogDetails = () => {
     return Text.toLowerCase()
       .replace(/ /g, "-")
       .replace(/[^\w-]+/g, "")
+  }
+
+  const getBlogImage = imageId => { 
+    if (imageId === 1) {
+      return wildcardBlogImage
+    } else { 
+      return wildcardBlogImage
+    }
   }
 
   useEffect(() => { 
@@ -31,8 +40,8 @@ const BlogDetails = () => {
 
   return <Layout>
     <div className="blogDetails">
-      <div
-        style={{ backgroundImage: `url(${blog?.image})` }}
+      <img
+        src={getBlogImage(blog?.image)}
         className="blogCoverImage"
       />
       <div className="textContent">

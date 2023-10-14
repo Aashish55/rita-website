@@ -8,6 +8,7 @@ import instagramIcon from '../assets/icons/instagram.svg'
 import twitterIcon from '../assets/icons/twitter.svg' 
 import githubIcon from '../assets/icons/github.svg' 
 import { Link } from "react-router-dom";
+import wildcardBlogImage from '../assets/images/blogs/wildcard.png'
 
 const Home = () => {
 
@@ -15,6 +16,14 @@ const Home = () => {
   return Text.toLowerCase()
     .replace(/ /g, "-")
     .replace(/[^\w-]+/g, "")
+  }
+
+  const getBlogImage = imageId => { 
+    if (imageId === 1) {
+      return wildcardBlogImage
+    } else { 
+      return wildcardBlogImage
+    }
   }
   
   return <Layout>
@@ -73,7 +82,7 @@ const Home = () => {
                 key={blog.name + i}
               >
                 <div className="blogImageContainer">
-                  <img src={blog.image} alt="Not Found" className="blogImage" />
+                  <img src={getBlogImage(blog?.image)} alt="Not Found" className="blogImage" />
                   <div className="publishedOnDate">{blog.publishedOn}</div>
                 </div>
                 <div className="blogTitle">{blog.name}</div>
