@@ -26,9 +26,8 @@ const BlogDetails = () => {
     if (!found) { 
       navigate('/')
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
-
-  console.log(blog)
 
   return <Layout>
     <div className="blogDetails">
